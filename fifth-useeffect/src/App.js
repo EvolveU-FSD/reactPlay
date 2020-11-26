@@ -17,7 +17,7 @@ function App() {
       <header className="App-header">
         <div>{
           alerts.map(alert => {
-            return <div>{alert.title}</div>
+            return <div key={alert.id}>{alert.title}</div>
           })
           }</div>
       </header>
