@@ -23,20 +23,23 @@ function App() {
     setSelectedAlertFunction(null)
   }
 
+  function showCorrectPage(){
+    // if there is no selectedAlert
+    if (selectedAlert == null)
+      // return the main page
+      return <MainPage alerts={alerts} setSelectedAlertFunction={setSelectedAlertFunction} 
+        resetAlerts={resetAlerts}/> 
+
+    // by default return a single page app
+    return <SinglePage alert={selectedAlert} resetAlerts={resetAlerts}/> 
+  }
+
   return (
     <>
       <header>
       </header>
       <body>
-        { 
-          // using conditions for our simple navigation
-          // if there is NOT a selected alert then show the main page
-          (selectedAlert === null) && <MainPage alerts={alerts} setSelectedAlertFunction={setSelectedAlertFunction} resetAlerts={resetAlerts}/> 
-        }
-        { 
-          // if there is a selected alert then show the single page for that alert
-          (selectedAlert != null) && <SinglePage alert={selectedAlert} resetAlerts={resetAlerts}/> 
-        }
+        { showCorrectPage() }
       </body>
     </>
   );

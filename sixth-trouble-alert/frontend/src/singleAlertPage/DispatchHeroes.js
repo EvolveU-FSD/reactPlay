@@ -7,5 +7,6 @@ export default function DispatchHeroes({alert, resetAlerts}){
         })
         .then(resetAlerts)                                                          // after the heroes are dispatch we'll call to reset the alerts in state
     }
-    return <div className="button" id='dispatchButton' onClick={dispatchHeroes}>Dispatch heroes</div>
+    return  <div className="button" id='dispatchButton' 
+            onClick={dispatchHeroes}>Dispatch heroes</div>
 }
